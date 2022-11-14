@@ -1,37 +1,37 @@
 import numpy
-from layer import Layer
+from denseLayer import DenseLayer
 
 if __name__ == '__main__':
     i0 = [1, 2]
     w0 = [3, 4]
 
     print(numpy.dot(w0, i0))
-    print(Layer.dot_product(w0, i0))
+    print(DenseLayer.dot_product(w0, i0))
     print("---")
 
     i1 = [[1, 2], [3, 4]]
     w1 = [1, 2]
 
     print(numpy.dot(w1, i1))
-    print(Layer.dot_product(w1, i1))
+    print(DenseLayer.dot_product(w1, i1))
     print("---")
 
     i2 = [1, 2]
     w2 = [[1, 2], [3, 4]]
     print(numpy.dot(w2, i2))
-    print(Layer.dot_product(w2, i2))
+    print(DenseLayer.dot_product(w2, i2))
     print("---")
 
     i3 = [[1, 2, 3], [3, 4, 5]]
     w3 = [1, 2]
     print(numpy.dot(w3, i3))
-    print(Layer.dot_product(w3, i3))
+    print(DenseLayer.dot_product(w3, i3))
     print("---")
 
     i4 = [[[1, 2, 3], [3, 4, 5]], [[-1, -2, -3], [-3, -4, -5]], [[-1, -2, -3], [-3, -4, -5]]]
     w4 = [1, 2]
     print(numpy.dot(w4, i4))
-    print(Layer.dot_product(w4, i4))
+    print(DenseLayer.dot_product(w4, i4))
     print("---")
 
     i5 = [1, 2, 3, 4]
@@ -41,5 +41,26 @@ if __name__ == '__main__':
         [1, 2, 3, 1]
     ]
     print(numpy.dot(w5, i5))
-    print(Layer.dot_product(w5, i5))
+    print(DenseLayer.dot_product(w5, i5))
     print("---")
+
+    i6 = [[1, 2, 3, 2.5],
+          [2.0, 5.0, -1.0, 2.0],
+          [-1.5, 2.7, 3.3, -0.8]]
+
+    w6 = [[0.2, 0.5, -0.26],
+          [0.8, -0.91, -0.27],
+          [-0.5, 0.26, 0.17],
+          [1.0, -0.5, 0.87]]
+
+    print(numpy.dot(i6, w6))
+    print(DenseLayer.dot_product(i6, w6))
+    print("----")
+
+    x = [[1, 2, 3], [4, 5, 6]]
+    print(numpy.array(x).T)
+    print(DenseLayer.transpose(x))
+    print("---")
+
+    print(numpy.array(w6).T)
+    print(DenseLayer.transpose(w6))
