@@ -1,4 +1,4 @@
-from denseLayer import DenseLayer
+from layers.denseLayer import DenseLayer
 
 if __name__ == '__main__':
     layer1 = DenseLayer(4, 5)
@@ -8,6 +8,6 @@ if __name__ == '__main__':
          [2.0, 5.0, -1.0, 2.0],
          [-1.5, 2.7, 3.3, -0.8]]
 
-    l1 = layer1.execute(X)
-    l2 = layer2.execute(l1)
+    l1 = layer1.impulse(X)
+    l2 = layer2.impulse(l1)
     print(l2)
