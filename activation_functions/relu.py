@@ -1,8 +1,8 @@
 from math_utils.type import naive_is_num
 import numpy
+
+
 # relu stands for rectified linear unit
-
-
 def naive_relu_activation_function(x, threshold=0):
     if naive_is_num(x):
         if x <= threshold:
