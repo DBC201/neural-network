@@ -1,14 +1,14 @@
 from nnfs.datasets import spiral_data
-from layers.denseLayer import DenseLayer
-from activation_functions.softmax import softmax_activation_function
+from layers.denseLayer import NaiveDenseLayer
+from activation_functions.softmax import naive_softmax_activation_function
 
 if __name__ == '__main__':
     X, y = spiral_data(samples=100, classes=3)
     X = X.tolist()
 
-    dense1 = DenseLayer(2, 3, softmax_activation_function)
+    dense1 = NaiveDenseLayer(2, 3, naive_softmax_activation_function)
 
-    dense2 = DenseLayer(3, 3, softmax_activation_function)
+    dense2 = NaiveDenseLayer(3, 3, naive_softmax_activation_function)
 
     r1 = dense1.impulse(X)
     # print(r1)

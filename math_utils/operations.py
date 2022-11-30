@@ -1,16 +1,16 @@
-from math_utils.type import is_num
+from math_utils.type import naive_is_num
 
 
-def dot_product(a, b):
+def naive_dot_product(a, b):
     # print(a, b)
-    if is_num(a) and is_num(b):
+    if naive_is_num(a) and naive_is_num(b):
         return a * b
-    elif is_num(a[0]) and is_num(b[0]):
+    elif naive_is_num(a[0]) and naive_is_num(b[0]):
         res = 0
         for i in range(len(a)):
             res += a[i] * b[i]
         return res
-    elif is_num(a[0]) and is_num(b[0][0]):
+    elif naive_is_num(a[0]) and naive_is_num(b[0][0]):
         res = []
         for i in range(len(b[0])):
             rr = 0
@@ -18,20 +18,20 @@ def dot_product(a, b):
                 rr += a[j] * b[j][i]
             res.append(rr)
         return res
-    elif is_num(a[0]):
+    elif naive_is_num(a[0]):
         res = []
         for eb in b:
-            res.append(dot_product(a, eb))
+            res.append(naive_dot_product(a, eb))
         return res
     else:
         res = []
         for ea in a:
-            res.append(dot_product(ea, b))
+            res.append(naive_dot_product(ea, b))
         return res
 
 
-def transpose(a):
-    if is_num(a[0]):
+def naive_transpose(a):
+    if naive_is_num(a[0]):
         return
     else:
         res = [[e] for e in a[0]]

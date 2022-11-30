@@ -1,11 +1,12 @@
 from math import e
-from math_utils.type import is_num
+from math_utils.type import naive_is_num
+import numpy
 
 
-def normalize(a):
-    if is_num(a):
+def naive_normalization(a):
+    if naive_is_num(a):
         return 0
-    elif is_num(a[0]):
+    elif naive_is_num(a[0]):
         m = max(a)
         res = []
         for i in a:
@@ -14,14 +15,14 @@ def normalize(a):
     else:
         res = []
         for i in a:
-            res.append(normalize(i))
+            res.append(naive_normalization(i))
         return res
 
 
-def exponentiate(a):
-    if is_num(a):
+def naive_exponentiation(a):
+    if naive_is_num(a):
         return e**a
-    elif is_num(a[0]):
+    elif naive_is_num(a[0]):
         res = []
         for i in a:
             res.append(e**i)
@@ -29,15 +30,15 @@ def exponentiate(a):
     else:
         res = []
         for i in a:
-            res.append(exponentiate(i))
+            res.append(naive_exponentiation(i))
         return res
 
 
-def softmax_activation_function(x):
-    if is_num(x):
+def naive_softmax_activation_function(x):
+    if naive_is_num(x):
         return 1/x
-    elif is_num(x[0]):
-        x = exponentiate(normalize(x))
+    elif naive_is_num(x[0]):
+        x = naive_exponentiation(naive_normalization(x))
         res = []
         s = sum(x)
         for i in x:
@@ -46,5 +47,10 @@ def softmax_activation_function(x):
     else:
         res = []
         for i in x:
-            res.append(softmax_activation_function(i))
+            res.append(naive_softmax_activation_function(i))
         return res
+
+
+def numpy_softmax_activation_function(x):
+    exp_values = numpy.exp(x - numpy.max(x, axis=1, keepdims=True))
+    return exp_values / numpy.sum(exp_values, axis=1, keepdims=True)

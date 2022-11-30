@@ -1,13 +1,15 @@
-from math_utils.type import is_num
+from math_utils.type import naive_is_num
+import numpy
+# relu stands for rectified linear unit
 
 
-def relu_activation_function(x, threshold=0):
-    if is_num(x):
+def naive_relu_activation_function(x, threshold=0):
+    if naive_is_num(x):
         if x <= threshold:
             return 0
         else:
             return x
-    elif is_num(x[0]):
+    elif naive_is_num(x[0]):
         res = []
         for i in x:
             if i <= threshold:
@@ -18,5 +20,9 @@ def relu_activation_function(x, threshold=0):
     else:
         res = []
         for i in x:
-            res.append(relu_activation_function(i, threshold))
+            res.append(naive_relu_activation_function(i, threshold))
         return res
+
+
+def numpy_relu_activation_function(x):
+    return numpy.maximum(0, x)

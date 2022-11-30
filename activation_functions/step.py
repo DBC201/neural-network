@@ -1,13 +1,13 @@
-from math_utils.type import is_num
+from math_utils.type import naive_is_num
 
 
-def step_activation_function(x, threshold=0):
-    if is_num(x):
+def naive_step_activation_function(x, threshold=0):
+    if naive_is_num(x):
         if x <= threshold:
             return 0
         else:
             return 1
-    elif is_num(x[0]):
+    elif naive_is_num(x[0]):
         res = []
         for i in x:
             if i <= threshold:
@@ -18,5 +18,5 @@ def step_activation_function(x, threshold=0):
     else:
         res = []
         for i in x:
-            res.append(step_activation_function(i, threshold))
+            res.append(naive_step_activation_function(i, threshold))
         return res
