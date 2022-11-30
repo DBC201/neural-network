@@ -14,7 +14,7 @@ if __name__ == '__main__':
     dense2 = DenseLayer(3, 3, softmax_activation_function)
 
     r1 = dense1.impulse(X)
-    print(r1)
+    # print(r1)
 
     r2 = dense2.impulse(r1)
-    print(r2)
+    print(r2[:5])
