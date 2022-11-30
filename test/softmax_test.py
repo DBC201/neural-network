@@ -1,9 +1,6 @@
-import nnfs
 from nnfs.datasets import spiral_data
 from layers.denseLayer import DenseLayer
 from activation_functions.softmax import softmax_activation_function
-
-nnfs.init()
 
 if __name__ == '__main__':
     X, y = spiral_data(samples=100, classes=3)
